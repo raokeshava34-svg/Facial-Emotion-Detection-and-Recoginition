@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emotion Detection Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #1e90ff, #ff69b4, #32cd32, #ffa500,#ee0505e7);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: white;
+    }
+    h1 {
+      margin-top: 20px;
+      font-size: 42px;
+      text-shadow: 2px 2px 5px black;
+    }
+    .result-box {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.4);
+      display: inline-block;
+    }
+    .result-box img {
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+    a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: #ffffff33;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+    a:hover {
+      background: #ffffff66;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+  </style>
+</head>
+<body>
+  <h1>Emotion Detection Result</h1>
+
+  <div class="result-box">
+    <h2>Predicted Emotion: {{ prediction }}</h2>
+    <img src="{{ url_for('static', filename='uploads/' + image_name) }}" alt="Uploaded Image" width="250">
+  </div>
+
+  <br>
+  <a href="{{ url_for('home') }}">Try Another Image</a>
+</body>
+</html>
